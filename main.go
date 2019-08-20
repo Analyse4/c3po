@@ -47,7 +47,11 @@ func main() {
 	req := new(pbprotocol.LoginReq)
 	req.Username = "jack"
 	req.Password = "123456"
-	data, _ := proto.Marshal(req)
+	r, _ := proto.Marshal(req)
+	mp := new(pbprotocol.MsgPack)
+	mp.Router = "digimon.login"
+	mp.Data = r
+	data, _ := proto.Marshal(mp)
 	err = c.WriteMessage(websocket.BinaryMessage, data)
 	if err != nil {
 		fmt.Println(err)
