@@ -56,6 +56,13 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
+
+	for {
+		select {
+		case <-done:
+			return
+		}
+	}
 	//ticker := time.NewTicker(time.Second)
 	//defer ticker.Stop()
 
