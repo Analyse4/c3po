@@ -47,6 +47,7 @@ func main() {
 	req := new(pbprotocol.LoginReq)
 	req.Username = "jack"
 	req.Password = "123456"
+	req.Type = pbprotocol.LoginReq_Visitor
 	r, _ := proto.Marshal(req)
 	mp := new(pbprotocol.MsgPack)
 	mp.Router = "digimon.login"
